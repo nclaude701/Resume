@@ -19,10 +19,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     if (mail($to, $subject, $message, $headers)) {
         // Email sent successfully
-        echo '1';
+        echo "sent";
     } else {
         // Email sending failed
-        echo '0';
+        echo "not sent";
     }
 } else {
     // If the script is accessed directly, return an error message
