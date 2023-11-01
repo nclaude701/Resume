@@ -25,6 +25,7 @@ $contact->to = $receiving_email_address;
 $contact->from_name = filter_var($_POST['name'], FILTER_SANITIZE_STRING);
 $contact->from_email = filter_var($_POST['email'], FILTER_SANITIZE_EMAIL);
 $contact->subject = filter_var($_POST['subject'], FILTER_SANITIZE_STRING);
+$contact->message = filter_var($_POST['message'], FILTER_SANITIZE_STRING);
 
 // Uncomment below code if you want to use SMTP to send emails. You need to enter your correct SMTP credentials
 /*
@@ -38,6 +39,7 @@ $contact->smtp = array(
 
 $contact->add_message($_POST['name'], 'From');
 $contact->add_message($_POST['email'], 'Email');
+$contact->add_message($_POST['subject'], 'Email');
 $contact->add_message($_POST['message'], 'Message', 10);
 
 echo $contact->send();
